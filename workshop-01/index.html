@@ -15,10 +15,12 @@
   <style>
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
-    * {
-      --slate300: hsl(212, 45%, 89%);
-      --slate500: hsl(216, 15%, 48%);
-      --slate900: hsl(218, 44%, 22%);
+    :root {
+      --bg-light: hsl(212, 45%, 89%);
+      --secondary-text: hsl(216, 15%, 48%);
+      --primary-text: hsl(218, 44%, 22%);
+      --card-rounded: 0.5em;
+      --card-width: 275px;
     }
     html,body { 
       margin: 0;
@@ -33,45 +35,43 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--slate300);
+      background-color: var(--bg-light);
     }
     .card-container {
-      --rounded: 0.5em;
-      --width: 275px;
       display: flex;
       flex-direction: column;
       background-color: white;
       padding: 1em;
-      box-shadow: 0 0.375em 1.75em -1em var(--slate500);
+      box-shadow: 0 0.375em 1.75em -1em var(--secondary-text);
       border-radius: calc(var(--rounded) * 2);
-      max-width: var(--width);
+      max-width: var(--card-width);
       font-size: 15px;
       text-align: center;
     }
     .qr-container {
       border-radius: var(--rounded);
       overflow: hidden;
-      width: var(--width);
-      height: var(--width);
+      width: var(--card-width);
+      height: var(--card-width);
     }
     .card-container h1 {
-      color: var(--slate900);
+      color: var(--primary-text);
       font-size: 1.5em;
       margin-bottom: 0;
     }
     .card-container p {
-      color: var(--slate500);
+      color: var(--secondary-text);
     }
     
   </style>
 </head>
 <body>
-  <div class="card-container">
+  <main class="card-container">
     <section class="qr-container">
-        <img src="./images/image-qr-code.png" width="100%" height="100%" />
+        <img src="./images/image-qr-code.png" width="100%" height="100%" alt="QR code image"/>
     </section>
     <h1 class="title">Improve your front-end skills by building projects</h1>
     <p class="subtitle">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</span>
-  </div>
+  </main>
 </body>
 </html>
