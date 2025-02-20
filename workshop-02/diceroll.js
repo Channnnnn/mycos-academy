@@ -97,7 +97,7 @@ async function onBet(/** @type {SubmitEvent} */ event) {
         : ''
     dicesEl.forEach((el, i) => el.textContent = diceMap[dices[i]])
     
-    await new Promise(res => setTimeout(res, 300))
+    // await new Promise(res => setTimeout(res, 300))
 
     totalDiceEl.textContent = `(${sum} - ${resultName})`
     const resultEl = document.createElement('span')
