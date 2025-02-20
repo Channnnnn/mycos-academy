@@ -96,21 +96,22 @@ async function onBet(/** @type {SubmitEvent} */ event) {
         : sum < 11 ? 'LOW'
         : ''
     dicesEl.forEach((el, i) => el.textContent = diceMap[dices[i]])
+    console.log(balance, result)
+    balanceEl.dataset.value = balance + result
+    gameEl.classList.remove('gain', 'loss')
     
-    // await new Promise(res => setTimeout(res, 300))
-
-    totalDiceEl.textContent = `(${sum} - ${resultName})`
+    await new Promise(res => setTimeout(res, 300))
+    
     const resultEl = document.createElement('span')
     const resultClass = result > 0 ? 'gain' : result < 0 ? 'loss' : ''
-    resultEl.classList.add(resultClass, 'result')
-    gameEl.classList.remove('gain', 'loss')
-    setTimeout(() => gameEl.classList.add(resultClass), 0)
 
+    gameEl.classList.add(resultClass)
+    totalDiceEl.textContent = `(${sum} - ${resultName})`
+    resultEl.classList.add(resultClass, 'result')
     resultEl.textContent = formatter.format(result)
     resultEl.style.rotate = (Math.floor(Math.random() * 12) - 6) + 'deg'
-    balanceEl.parentElement.append(resultEl)
     setTimeout(() => resultEl.remove(), 1000)
 
-    balanceEl.dataset.value = balance + result
+    balanceEl.parentElement.append(resultEl)
     balanceEl.textContent = balanceEl.dataset.value
 }
