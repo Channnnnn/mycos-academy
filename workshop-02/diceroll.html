@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./diceroll.css">
+    <link href="https://fonts.cdnfonts.com/css/quivira" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="d-flex justify-center align-center noise">
+    <form onsubmit="onBet(event)">
+        <h1 class="title">3-Dice HILO</h1>
+        <div class="dicebet">
+            <div class="d-flex flex-1 justify-center" style="grid-area: balance; text-shadow: 0 0 48px;">
+                <h2>Balance $<span id="balance" data-value="100">100</span></label>
+            </div>
+            <!--  -->
+            <div class="diceDisplay" style="grid-area: dice; min-height: 120px;">
+                <div>
+                    <b class="your-bet">Your bet: <span data-your-bet></span></b>
+                </div>
+                <span data-dice style="rotate: 90deg;">&#x2680;</span>
+                <span data-dice style="rotate: 0deg;">&#x2681;</span>
+                <span data-dice style="rotate: 180deg;">&#x2682;</span>
+                <div>
+                    <em data-total></em>
+                </div>
+            </div>
+            <!--  -->
+            <div class="d-flex justify-center align-stretch" style="gap: 5px;  font-size: 1.5em;">
+                <label style="padding-right: 0.5em; align-self: center;">Bet </label>
+                <button type="button" class="decreaseBet"> -$5 </button>
+                <label class="d-flex justify-center align-center" for="bet" style="min-width: 7ch; ">
+                    <span class="align-center">$</span>
+                    <input id="bet" style="width: 1ch;" type="number" class="" step="1" value="1" min="1" required 
+                        oninvalid="invalidBet(event)"
+                        oninput="this.setCustomValidity(''); autoWidth()"></label>
+                <button type="button" class="increaseBet"> +$5 </button>
+            </div>
+            
+        </div>
+        <div class="betButton">
+            <button type="submit" value="low">Low (3-10)</button>
+            <button type="submit" value="mid">Mid (11)<br/><span>✨ <em>Win 5x</em> ✨</span></button>
+            <button type="submit" value="high">High (12-18)</button>
+        </div>
+    </form>
+</body>
+<script src="./diceroll.js"></script>
+</html>
